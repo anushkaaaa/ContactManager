@@ -5,4 +5,5 @@
     <string name="addbutton">Add</string>
     <string name="Contacts">Contacts</string>
     <string name="clear_button">Clear</string>
+    <string name="delete_button">Delete All Contacts</string>
 </resources>

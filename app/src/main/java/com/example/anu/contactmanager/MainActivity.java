@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     private Button add;
     private Button clear;
     private TextView display;
+    private Button delete;
     DatabaseHandler db = new DatabaseHandler(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         display = (TextView) findViewById(R.id.display);
         add = (Button) findViewById(R.id.Add_button);
         clear = (Button) findViewById(R.id.clear_button);
+        delete = (Button) findViewById(R.id.delete_button);
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                     result += temp;
                 }
                 display.setText(result);
+                delete.setVisibility(View.VISIBLE);
                 name.setText("");
                 phoneNumber.setText("");
         }});
@@ -57,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 name.setText("");
                 phoneNumber.setText("");
+            }
+        });
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                List<Contact> contactList = db.getAll();
+                for(Contact contact: contactList ){
+                    db.delete(contact);
+                }
+                display.setText("");
             }
         });
     }
