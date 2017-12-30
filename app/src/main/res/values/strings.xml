@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Contact Manager</string>
+    <string name="name_string">Enter Your Name</string>
+    <string name="phone_String">Enter Your Phone Number</string>
+    <string name="addbutton">Add</string>
+    <string name="Contacts">Contacts</string>
+    <string name="clear_button">Clear</string>
+</resources>
